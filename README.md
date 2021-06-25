@@ -1,5 +1,6 @@
 # zsh-theme
-A simple script to setup an awesome shell environment. Fork from: https://github.com/jotyGill/quickz-sh
+A simple script to setup an awesome shell environment. 
+Fork from: https://github.com/jotyGill/quickz-sh
 Quickly install and setup zsh and oh-my-zsh (https://github.com/robbyrussell/oh-my-zsh) with
 * powerlevel10k theme (https://github.com/romkatv/powerlevel10k)
 * Nerd-Fonts (https://github.com/ryanoasis/nerd-fonts)
