@@ -35,3 +35,4 @@ wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/lib/complet
 wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/lib/history.zsh -P ~/.zsh/ &> /dev/null
 wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/lib/key-bindings.zsh -P ~/.zsh/ &> /dev/null
 
+source ~/.zshrc
