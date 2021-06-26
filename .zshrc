@@ -13,11 +13,11 @@ zmodload -i zsh/complist
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
-alias grep='grep --color=auto'                # colorize `grep` output
+alias grep='grep --color=auto'
 alias less='less -R'
-alias rm='rm -i'                              # confirm removal
-alias cp='cp -i'                              # confirm copy
-alias mv='mv -i'                              # confirm move
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
 alias bat='batcat --theme base16 -p'
 alias ls='ls -h --color=auto'
 alias la='ls -lah --color=auto'
