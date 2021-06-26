@@ -1,4 +1,4 @@
-# zsh-theme
+# gh-zsh
 A simple script to setup an awesome shell environment with:
 * powerlevel10k theme (https://github.com/romkatv/powerlevel10k)
 * zsh-completions (https://github.com/zsh-users/zsh-completions)
@@ -24,11 +24,11 @@ Sets following useful aliases:
 ## Demo
 
 Currently the command prompt looks like this:
-![ZSH-Prompt](https://github.com/gustavohellwig/zsh-theme/blob/main/zsh-example.png?raw=true)
+![ZSH-Prompt](https://github.com/gustavohellwig/gh-zsh/blob/main/zsh-example.png?raw=true)
 ## Installation
 
 ``` bash
-curl -fsSL https://raw.githubusercontent.com/gustavohellwig/zsh-theme/main/zsh-theme.sh | bash
+curl -fsSL https://raw.githubusercontent.com/gustavohellwig/gh-zsh/main/gh-zsh.sh | bash
 ```
 
 ## Notes
