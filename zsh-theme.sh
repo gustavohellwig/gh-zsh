@@ -144,13 +144,14 @@ wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/lib/key-bin
 wget https://raw.githubusercontent.com/gustavohellwig/zsh-theme/main/.p10k.zsh -P ~/
 
 wget https://raw.githubusercontent.com/gustavohellwig/zsh-theme/main/.zshrc -P ~/
-sudo cp /home/"$(whoami)"/.zshrc /root/
-sudo cp /home/"$(whoami)"/.p10k.zsh /root/
 
-#FINAL
 echo "source $HOME/.zsh/powerlevel10k/powerlevel10k.zsh-theme" >>~/.zshrc
 echo "source $HOME/.zsh/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh" >> ~/.zshrc
 echo "source $HOME/.zsh/completion.zsh" >> ~/.zshrc
 echo "source $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh" >> ~/.zshrc
 echo "source $HOME/.zsh/history.zsh" >> ~/.zshrc
 echo "source $HOME/.zsh/key-bindings.zsh" >> ~/.zshrc
+
+sudo cp /home/"$(whoami)"/.zshrc /root/
+sudo cp /home/"$(whoami)"/.p10k.zsh /root/sudo cp /home/"$(whoami)"/.zshrc /root/
+sudo cp /home/"$(whoami)"/.p10k.zsh /root/
