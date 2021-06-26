@@ -11,11 +11,11 @@ Sets following useful aliases:
 * ..='cd ..'
 * ...='cd ../..'
 * ....='cd ../../..'
-* grep='grep --color=auto'                # colorize `grep` output
+* grep='grep --color=auto'
 * less='less -R'
-* rm='rm -i'                              # confirm removal
-* cp='cp -i'                              # confirm copy
-* mv='mv -i'                              # confirm move
+* rm='rm -i'
+* cp='cp -i'
+* mv='mv -i'
 * bat='batcat --theme base16 -p'
 * ls='ls -h --color=auto'
 * la='ls -la --color=auto'
