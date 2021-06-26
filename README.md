@@ -3,9 +3,10 @@ A simple script to setup an awesome shell environment with:
 * powerlevel10k theme (https://github.com/romkatv/powerlevel10k)
 * zsh-completions (https://github.com/zsh-users/zsh-completions)
 * zsh-autosuggestions (https://github.com/zsh-users/zsh-autosuggestions)
-* zsh-syntax-highlighting (https://github.com/zsh-users/zsh-syntax-highlighting)
-* history-substring-search (https://github.com/zsh-users/zsh-history-substring-search)
-* k (https://github.com/supercrabtree/k)
+* fast-syntax-highlighting (https://github.com/zdharma/fast-syntax-highlighting/
+* completion (https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/lib/completion.zsh)
+* history (https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/lib/history.zsh)
+* key-bindings (https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/lib/key-bindings.zsh)
 
 Sets following useful aliases:
 * ..='cd ..'
