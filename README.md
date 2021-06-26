@@ -18,9 +18,6 @@ Sets following useful aliases:
 curl -fsSL https://raw.githubusercontent.com/gustavohellwig/zsh-theme/main/zsh-theme.sh | bash
 ```
 
-Change your terminals fonts to either "RobotoMono Nerd Font" or "Hack Nerd Font" or "DejaVu Sans Mono Nerd Fonts".
-You can also manually install Nerd Fonts of your choice.
-
 ## Notes
 * If you are already using zsh, your zsh config will be backed up to .zshrc-backup-date
-* If the text/icons look broken, make sure your terminal is using one of the Nerd fonts. I recommend "RobotoMono Nerd Font"
+* If the text/icons look broken, make sure your terminal is using one of the Nerd fonts. I recommend "Merlo Nerd Font"
