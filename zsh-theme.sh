@@ -3,8 +3,8 @@
 #--------------------------------------------------
 # Shell Configurations
 #--------------------------------------------------
-echo -e "\nShell Configurations\n"
 sudo apt install zsh bat wget git -y &> /dev/null
+echo -e "\nShell Configurations\n"
 sudo usermod -s /usr/bin/zsh $(whoami) &> /dev/null
 sudo usermod -s /usr/bin/zsh root &> /dev/null
 if mv -n ~/.zshrc ~/.zshrc-backup-$(date +"%Y-%m-%d") &> /dev/null; then
@@ -21,14 +21,14 @@ sudo cp /home/"$(whoami)"/.zshrc /root/
 #--------------------------------------------------
 # Theme Installation
 #--------------------------------------------------
-echo -e "\nTheme Installation\n"
+echo -e "\nTheme Installation"
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.zsh/powerlevel10k &> /dev/null
 wget https://raw.githubusercontent.com/gustavohellwig/zsh-theme/main/.p10k.zsh -P ~/ &> /dev/null
 sudo cp /home/"$(whoami)"/.p10k.zsh /root/
 #--------------------------------------------------
 # Plugins Installations
 #--------------------------------------------------
-echo -e "\nPlugins Installations\n"
+echo -e "\nPlugins Installations"
 git clone https://github.com/zdharma/fast-syntax-highlighting.git ~/.zsh/fast-syntax-highlighting &> /dev/null
 git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.zsh/zsh-autosuggestions &> /dev/null
 wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/lib/completion.zsh -P ~/.zsh/ &> /dev/null
