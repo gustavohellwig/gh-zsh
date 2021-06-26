@@ -32,5 +32,5 @@ curl -fsSL https://raw.githubusercontent.com/gustavohellwig/gh-zsh/main/gh-zsh.s
 ```
 
 ## Notes
-* If you are already using zsh, your zsh config will be backed up to .zshrc-backup-date
-* If the text/icons look broken, make sure your terminal is using one of the Nerd fonts. I recommend "Merlo Nerd Font"
+* If you are already using zsh, your zsh config will be backed up to .zshrc-backup-date.
+* If the text/icons look broken, make sure your terminal is using one of the Nerd fonts.
