@@ -1,10 +1,3 @@
-source $HOME/.zsh/powerlevel10k/powerlevel10k.zsh-theme
-source $HOME/.zsh/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
-source $HOME/.zsh/completion.zsh
-source $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-source $HOME/.zsh/history.zsh
-source $HOME/.zsh/key-bindings.zsh
-
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 autoload -Uz compinit
@@ -35,3 +28,5 @@ alias grep='grep --color'
 
 # Exports
 export TERM="xterm-256color"
+
+# sources
