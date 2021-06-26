@@ -15,9 +15,7 @@ Sets following useful aliases:
 ## Installation
 
 ``` bash
-git clone https://github.com/gustavohellwig/zsh-theme.git ~/.zsh-theme
-cd .zsh-theme
-./zsh-theme.sh
+curl -fsSL https://raw.githubusercontent.com/gustavohellwig/zsh-theme/main/zsh-theme.sh | bash
 ```
 
 Change your terminals fonts to either "RobotoMono Nerd Font" or "Hack Nerd Font" or "DejaVu Sans Mono Nerd Fonts".
