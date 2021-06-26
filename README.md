@@ -21,6 +21,11 @@ Sets following useful aliases:
 * ls='ls -h --color=auto'
 * la='ls -la --color=auto'
 
+## Demo
+
+Currently the command prompt looks like this:
+![ZSH Prompt](https://user-images.githubusercontent.com/8462091/43674765-8bb13a76-9817-11e8-8b7b-16b8b1998408.png)
+
 ## Installation
 
 ``` bash
