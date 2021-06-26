@@ -153,5 +153,4 @@ echo "source $HOME/.zsh/history.zsh" >> ~/.zshrc
 echo "source $HOME/.zsh/key-bindings.zsh" >> ~/.zshrc
 
 sudo cp /home/"$(whoami)"/.zshrc /root/
-sudo cp /home/"$(whoami)"/.p10k.zsh /root/sudo cp /home/"$(whoami)"/.zshrc /root/
 sudo cp /home/"$(whoami)"/.p10k.zsh /root/
