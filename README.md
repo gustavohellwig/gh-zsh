@@ -25,7 +25,6 @@ Sets following useful aliases:
 
 Currently the command prompt looks like this:
 ![ZSH-Prompt](https://github.com/gustavohellwig/zsh-theme/blob/main/zsh-example.png?raw=true)
-
 ## Installation
 
 ``` bash
