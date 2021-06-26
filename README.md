@@ -8,9 +8,17 @@ A simple script to setup an awesome shell environment with:
 * k (https://github.com/supercrabtree/k)
 
 Sets following useful aliases:
-* l="ls -lah"         - just type "l" instead of "ls -lah"
-* alias k="k -h"	  - show human readable filesizes, in kb, mb etc
-* x="exit"
+* ..='cd ..'
+* ...='cd ../..'
+* ....='cd ../../..'
+* grep='grep --color=auto'                # colorize `grep` output
+* less='less -R'
+* rm='rm -i'                              # confirm removal
+* cp='cp -i'                              # confirm copy
+* mv='mv -i'                              # confirm move
+* bat='batcat --theme base16 -p'
+* ls='ls -h --color=auto'
+* la='ls -la --color=auto'
 
 ## Installation
 
