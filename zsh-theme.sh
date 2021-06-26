@@ -7,6 +7,9 @@ echo -e "\nShell Configurations\n"
 sudo apt install zsh bat wget git -y &> /dev/null
 sudo usermod -s /usr/bin/zsh $(whoami) &> /dev/null
 sudo usermod -s /usr/bin/zsh root &> /dev/null
+if mv -n ~/.zshrc ~/.zshrc-backup-$(date +"%Y-%m-%d") &> /dev/null; then
+    echo -e "Backed up the current .zshrc to .zshrc-backup-date\n"
+fi
 wget https://raw.githubusercontent.com/gustavohellwig/zsh-theme/main/.zshrc -P ~/ &> /dev/null
 echo "source $HOME/.zsh/powerlevel10k/powerlevel10k.zsh-theme" >>~/.zshrc
 echo "source $HOME/.zsh/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh" >> ~/.zshrc
