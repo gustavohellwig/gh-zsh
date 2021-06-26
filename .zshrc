@@ -19,8 +19,8 @@ alias rm='rm -i'                              # confirm removal
 alias cp='cp -i'                              # confirm copy
 alias mv='mv -i'                              # confirm move
 alias bat='batcat --theme base16 -p'
-alias ls='ls --color=auto'
-alias la='ls -la --color=auto'
+alias ls='ls -h --color=auto'
+alias la='ls -lah --color=auto'
 
 # Exports
 export TERM="xterm-256color"
