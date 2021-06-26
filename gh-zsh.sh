@@ -36,3 +36,4 @@ wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/lib/history
 wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/lib/key-bindings.zsh -P ~/.zsh/ &> /dev/null
 
 exec zsh -l
+echo -e "\nFinished\n"
