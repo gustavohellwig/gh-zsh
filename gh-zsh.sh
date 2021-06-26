@@ -4,7 +4,7 @@
 # Shell Configurations
 #--------------------------------------------------
 sudo apt install zsh bat wget git -y &> /dev/null
-echo -e "\nShell Configurations\n"
+echo -e "\nShell Configurations"
 sudo usermod -s /usr/bin/zsh $(whoami) &> /dev/null
 sudo usermod -s /usr/bin/zsh root &> /dev/null
 if mv -n ~/.zshrc ~/.zshrc-backup-$(date +"%Y-%m-%d") &> /dev/null; then
