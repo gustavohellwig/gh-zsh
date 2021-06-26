@@ -132,25 +132,35 @@
 # fi
 # exit
 
+#--------------------------------------------------
+# Shell Configurations
+#--------------------------------------------------
+# echo -e "\nShell Configurations\n"
 sudo apt install zsh bat -y
 sudo usermod -s /usr/bin/zsh $(whoami)
 sudo usermod -s /usr/bin/zsh root
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.zsh/powerlevel10k
-git clone https://github.com/zdharma/fast-syntax-highlighting.git ~/.zsh/fast-syntax-highlighting
-git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.zsh/zsh-autosuggestions
-wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/lib/completion.zsh -P ~/.zsh/
-wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/lib/history.zsh -P ~/.zsh/
-wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/lib/key-bindings.zsh -P ~/.zsh/
-wget https://raw.githubusercontent.com/gustavohellwig/zsh-theme/main/.p10k.zsh -P ~/
-
 wget https://raw.githubusercontent.com/gustavohellwig/zsh-theme/main/.zshrc -P ~/
-
 echo "source $HOME/.zsh/powerlevel10k/powerlevel10k.zsh-theme" >>~/.zshrc
 echo "source $HOME/.zsh/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh" >> ~/.zshrc
 echo "source $HOME/.zsh/completion.zsh" >> ~/.zshrc
 echo "source $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh" >> ~/.zshrc
 echo "source $HOME/.zsh/history.zsh" >> ~/.zshrc
 echo "source $HOME/.zsh/key-bindings.zsh" >> ~/.zshrc
-
 sudo cp /home/"$(whoami)"/.zshrc /root/
+#--------------------------------------------------
+# Theme Installation
+#--------------------------------------------------
+# echo -e "\nTheme Installation\n"
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.zsh/powerlevel10k
+wget https://raw.githubusercontent.com/gustavohellwig/zsh-theme/main/.p10k.zsh -P ~/
 sudo cp /home/"$(whoami)"/.p10k.zsh /root/
+#--------------------------------------------------
+# Plugins Installations
+#--------------------------------------------------
+# echo -e "\nPlugins Installations\n"
+git clone https://github.com/zdharma/fast-syntax-highlighting.git ~/.zsh/fast-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.zsh/zsh-autosuggestions
+wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/lib/completion.zsh -P ~/.zsh/
+wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/lib/history.zsh -P ~/.zsh/
+wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/lib/key-bindings.zsh -P ~/.zsh/
+
