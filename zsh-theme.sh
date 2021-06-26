@@ -132,14 +132,13 @@
 # fi
 # exit
 
-
 #--------------------------------------------------
 # Shell Configurations
 #--------------------------------------------------
 echo -e "\nShell Configurations\n"
-sudo apt install zsh bat -y
-sudo usermod -s /usr/bin/zsh $(whoami)
-sudo usermod -s /usr/bin/zsh root
+sudo apt install zsh bat -y &> /dev/null
+sudo usermod -s /usr/bin/zsh $(whoami) &> /dev/null
+sudo usermod -s /usr/bin/zsh root &> /dev/null
 wget https://raw.githubusercontent.com/gustavohellwig/zsh-theme/main/.zshrc -P ~/ &> /dev/null
 echo "source $HOME/.zsh/powerlevel10k/powerlevel10k.zsh-theme" >>~/.zshrc
 echo "source $HOME/.zsh/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh" >> ~/.zshrc
@@ -164,3 +163,4 @@ git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.zsh/zsh-autosu
 wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/lib/completion.zsh -P ~/.zsh/ &> /dev/null
 wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/lib/history.zsh -P ~/.zsh/ &> /dev/null
 wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/lib/key-bindings.zsh -P ~/.zsh/ &> /dev/null
+
