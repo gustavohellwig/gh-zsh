@@ -8,7 +8,7 @@ echo -e "\nShell Configurations"
 sudo usermod -s /usr/bin/zsh $(whoami) &> /dev/null
 sudo usermod -s /usr/bin/zsh root &> /dev/null
 if mv -n ~/.zshrc ~/.zshrc-backup-$(date +"%Y-%m-%d") &> /dev/null; then
-    echo -e "Backed up the current .zshrc to .zshrc-backup-date\n"
+    echo -e "\n--> Backing up the current .zshrc config to .zshrc-backup-date"
 fi
 wget https://raw.githubusercontent.com/gustavohellwig/gh-zsh/main/.zshrc -P ~/ &> /dev/null
 echo "source $HOME/.zsh/powerlevel10k/powerlevel10k.zsh-theme" >>~/.zshrc
