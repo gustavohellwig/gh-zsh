@@ -35,5 +35,5 @@ wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/lib/complet
 wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/lib/history.zsh -P ~/.zsh/ &> /dev/null
 wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/lib/key-bindings.zsh -P ~/.zsh/ &> /dev/null
 
-exec zsh -l
-echo -e "\nFinished\n"
+echo -e "\nInstallation Finished"
+echo -e "\n--> Reopen Terminal or run 'zsh' to start using it. \n"
