@@ -3,6 +3,7 @@
 #--------------------------------------------------
 # Shell Configurations
 #--------------------------------------------------
+echo -e "\nInstalling zsh, bat, wget, and git"
 sudo apt install zsh bat wget git -y &> /dev/null
 echo -e "\nShell Configurations"
 sudo usermod -s /usr/bin/zsh $(whoami) &> /dev/null
