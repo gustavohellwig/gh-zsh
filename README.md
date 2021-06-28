@@ -24,7 +24,7 @@ Sets following useful aliases:
 ## Demo
 
 Currently the command prompt looks like this:
-![ZSH-Prompt](https://github.com/gustavohellwig/gh-zsh/blob/main/zsh-example.png?raw=true)
+![ZSH-Prompt](https://github.com/gustavohellwig/gh-zsh/blob/2e0ac65f20691f1f26e17145013e4a1260a0128e/gh-zsh-example.png)
 ## Installation
 
 ``` bash
