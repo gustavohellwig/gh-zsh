@@ -33,5 +33,5 @@ curl -fsSL https://raw.githubusercontent.com/gustavohellwig/gh-zsh/main/gh-zsh.s
 * If you are already using zsh, your zsh config will be backed up to .zshrc-backup-date.
 * If the text/icons look broken, make sure your terminal is using one of the Nerd fonts.
 * Tested on:
-*    Ubuntu 18.04, 20.04, 
-*    MacOS 10.14, and 11.3
+  * Ubuntu 18.04, 20.04, 
+  * MacOS 10.14, and 11.3
