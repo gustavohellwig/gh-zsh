@@ -120,9 +120,8 @@ if [[ "$OS" == "Linux" ]] || [[ "$OS" == "Darwin" ]] ; then
             echo "Homebrew not found. Installing..."
             echo "--> When prompted for the password, enter your Mac login password."
             export CI=1
-            sudo su && exit && curl -fsSL https://raw.githubusercontent.com/gustavohellwig/gh-zsh/main/gh-zsh1.sh | bash
-            yes '' | /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-            # echo | /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)" > /dev/null && if [ $? -eq 0 ]; then echo 'OK'; else echo 'NG'; fi
+            #yes '' | /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+            echo | /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)" > /dev/null && if [ $? -eq 0 ]; then echo 'OK'; else echo 'NG'; fi
         else
             echo "Homebrew already installed!"
             brew update &> /dev/null
