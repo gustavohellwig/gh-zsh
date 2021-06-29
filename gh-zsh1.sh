@@ -168,7 +168,12 @@ if [[ "$OS" == "Linux" ]] || [[ "$OS" == "Darwin" ]] ; then
 
     echo -e "\nInstallation Finished"
     echo -e "\n--> Reopen Terminal or run 'zsh' to start using it. \n"
-    exec /usr/bin/zsh
+    if [[ "$OS" == "Linux" ]]; then
+        exec /usr/bin/zsh
+    fi
+    if [[ "$OS" == "Linux" ]]; then
+        exec /bin/zsh
+    fi
 else
     echo "This script is only supported on macOS and Linux."
     exit 0
