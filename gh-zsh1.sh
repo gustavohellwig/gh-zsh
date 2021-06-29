@@ -121,7 +121,8 @@ if [[ "$OS" == "Linux" ]] || [[ "$OS" == "Darwin" ]] ; then
             echo "--> When prompted for the password, enter your Mac login password."
             export CI=1
             #yes '' | /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-            echo | /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)" > /dev/null && if [ $? -eq 0 ]; then echo 'OK'; else echo 'NG'; fi
+            /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+            #echo | /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)" > /dev/null && if [ $? -eq 0 ]; then echo 'OK'; else echo 'NG'; fi
         else
             echo "Homebrew already installed!"
             brew update &> /dev/null
