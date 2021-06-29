@@ -6,7 +6,7 @@
 OS="$(uname)"
 if [[ "$OS" == "Linux" ]] || [[ "$OS" == "Darwin" ]] ; then
     echo
-    echo "---> Type your Mac Login Password and wait, as that can take some minutes."
+    echo "--> Type your Mac Login Password and wait, as that can take some minutes."
     if [[ "$OS" == "Linux" ]]; then
         sudo apt install zsh bat wget git -y &> /dev/null
         echo -e "\nInstalling zsh, bat, wget, and git"
