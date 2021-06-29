@@ -7,9 +7,9 @@ OS="$(uname)"
 if [[ "$OS" == "Linux" ]] || [[ "$OS" == "Darwin" ]] ; then
     echo
     echo "---> Type your Mac Login Password and wait, as that can take some minutes."
-    sleep 3 && echo "\nInstalling zsh, bat, wget, and git"
     if [[ "$OS" == "Linux" ]]; then
         sudo apt install zsh bat wget git -y &> /dev/null
+        echo -e "\nInstalling zsh, bat, wget, and git"
     fi
     if [[ "$OS" == "Darwin" ]]; then
         version_gt() {
@@ -129,6 +129,7 @@ if [[ "$OS" == "Linux" ]] || [[ "$OS" == "Darwin" ]] ; then
             echo "Homebrew already installed!"
             brew update &> /dev/null
         fi
+        echo -e "\nInstalling zsh, bat, wget, and git"
         brew install zsh bat wget git
     fi
     echo -e "\nShell Configurations"
