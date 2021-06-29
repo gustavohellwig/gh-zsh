@@ -113,8 +113,6 @@ if [[ "$OS" == "Linux" ]] || [[ "$OS" == "Darwin" ]] ; then
                 execute_sudo "/bin/rm" "-f" "$clt_placeholder"
                 execute_sudo "/usr/bin/xcode-select" "--switch" "/Library/Developer/CommandLineTools"
             fi
-        else
-            brew update &> /dev/null
         fi
         echo "Checking for homebrew installation"
         which -s brew &> /dev/null
