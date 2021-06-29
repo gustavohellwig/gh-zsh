@@ -31,7 +31,6 @@ if [[ "$OS" == "Linux" ]] || [[ "$OS" == "Darwin" ]] ; then
         fi
         }
         if should_install_command_line_tools && version_ge "$macos_version" "10.13"; then
-            echo "Xcode Command Line Tools not found. Installing..."
             echo "--> When prompted for the password, enter your Mac login password."
             shell_join() {
                 local arg
@@ -109,12 +108,12 @@ if [[ "$OS" == "Linux" ]] || [[ "$OS" == "Darwin" ]] ; then
             clt_label="$(chomp "$(/bin/bash -c "$clt_label_command")")"
 
             if [[ -n "$clt_label" ]]; then
+                echo "Xcode Command Line Tools not found. Installing...\n"
                 execute_sudo "/usr/sbin/softwareupdate" "-i" "$clt_label"
                 execute_sudo "/bin/rm" "-f" "$clt_placeholder"
                 execute_sudo "/usr/bin/xcode-select" "--switch" "/Library/Developer/CommandLineTools"
             fi
         fi
-        echo "Checking for homebrew installation"
     fi
     echo -e "\nShell Configurations"
     if [[ "$OS" == "Darwin" ]]; then
@@ -152,9 +151,9 @@ if [[ "$OS" == "Linux" ]] || [[ "$OS" == "Darwin" ]] ; then
     echo -e "\nPlugins Installations"
     git clone https://github.com/zdharma/fast-syntax-highlighting.git ~/.zsh/fast-syntax-highlighting &> /dev/null
     git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.zsh/zsh-autosuggestions &> /dev/null
-    (cd ~/ && curl -O https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/lib/completion.zsh) &> /dev/null
-    (cd ~/ && curl -O https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/lib/history.zsh) &> /dev/null
-    (cd ~/ && curl -O https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/lib/key-bindings.zsh) &> /dev/null
+    (cd ~/.zsh/ && curl -O https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/lib/completion.zsh) &> /dev/null
+    (cd ~/.zsh/ && curl -O https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/lib/history.zsh) &> /dev/null
+    (cd ~/.zsh/ && curl -O https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/lib/key-bindings.zsh) &> /dev/null
 
     echo -e "\nInstallation Finished"
     echo -e "\n--> Reopen Terminal or run 'zsh' to start using it. \n"
