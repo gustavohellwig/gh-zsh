@@ -15,12 +15,13 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias grep='grep --color=auto'
 alias less='less -R'
-alias rm='rm -i'
-alias cp='cp -i'
-alias mv='mv -i'
-alias bat='batcat --theme base16 -p'
-alias ls='ls -h --color=auto'
-alias la='ls -lah --color=auto'
+
+OS="$(uname)"
+if [[ "$OS" == "Linux" ]]; then
+    alias bat='batcat --theme base16 -p'
+    alias ls='ls -h --color=auto'
+    alias la='ls -lah --color=auto'
+fi
 
 # Exports
 export TERM="xterm-256color"
