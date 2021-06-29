@@ -7,7 +7,6 @@ OS="$(uname)"
 if [[ "$OS" == "Linux" ]] || [[ "$OS" == "Darwin" ]] ; then
     echo -e "\nInstalling zsh, bat, wget, and git"
     if [[ "$OS" == "Linux" ]]; then
-        echo "Linux OS"
         sudo apt install zsh bat wget git -y &> /dev/null
     fi
     if [[ "$OS" == "Darwin" ]]; then
@@ -136,7 +135,6 @@ if [[ "$OS" == "Linux" ]] || [[ "$OS" == "Darwin" ]] ; then
     echo -e "\nShell Configurations"
     sudo usermod -s /usr/bin/zsh $(whoami) &> /dev/null
     if [[ "$OS" == "Linux" ]]; then
-        echo "Linux OS"
         sudo usermod -s /usr/bin/zsh root &> /dev/null
     fi
     if mv -n ~/.zshrc ~/.zshrc-backup-$(date +"%Y-%m-%d") &> /dev/null; then
@@ -150,7 +148,6 @@ if [[ "$OS" == "Linux" ]] || [[ "$OS" == "Darwin" ]] ; then
     echo "source $HOME/.zsh/history.zsh" >> ~/.zshrc
     echo "source $HOME/.zsh/key-bindings.zsh" >> ~/.zshrc
     if [[ "$OS" == "Linux" ]]; then
-        echo "Linux OS"
         sudo cp /home/"$(whoami)"/.zshrc /root/
     fi
     #--------------------------------------------------
@@ -160,7 +157,6 @@ if [[ "$OS" == "Linux" ]] || [[ "$OS" == "Darwin" ]] ; then
     git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.zsh/powerlevel10k &> /dev/null
     wget https://raw.githubusercontent.com/gustavohellwig/gh-zsh/main/.p10k.zsh -P ~/ &> /dev/null
     if [[ "$OS" == "Linux" ]]; then
-        echo "Linux OS"
         sudo cp /home/"$(whoami)"/.p10k.zsh /root/
     fi
     #--------------------------------------------------
@@ -175,6 +171,7 @@ if [[ "$OS" == "Linux" ]] || [[ "$OS" == "Darwin" ]] ; then
 
     echo -e "\nInstallation Finished"
     echo -e "\n--> Reopen Terminal or run 'zsh' to start using it. \n"
+    exec /usr/bin/zsh
 else
     echo "This script is only supported on macOS and Linux."
     exit 0
