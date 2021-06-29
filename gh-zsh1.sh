@@ -114,7 +114,6 @@ if [[ "$OS" == "Linux" ]] || [[ "$OS" == "Darwin" ]] ; then
                 execute_sudo "/usr/bin/xcode-select" "--switch" "/Library/Developer/CommandLineTools"
             fi
         else
-            echo "Xcode Command Line already installed!"
             brew update &> /dev/null
         fi
         echo "Checking for homebrew installation"
