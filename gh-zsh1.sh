@@ -32,7 +32,7 @@ if [[ "$OS" == "Linux" ]] || [[ "$OS" == "Darwin" ]] ; then
         }
         if should_install_command_line_tools && version_ge "$macos_version" "10.13"; then
             echo "Xcode Command Line Tools not found. Installing..."
-            echo "--> Please, enter your Mac Login Password:"
+            echo "--> When prompted for the password, enter your Mac login password."
             shell_join() {
                 local arg
                 printf "%s" "$1"
@@ -118,7 +118,7 @@ if [[ "$OS" == "Linux" ]] || [[ "$OS" == "Darwin" ]] ; then
         which -s brew &> /dev/null
         if [[ $? != 0 ]] ; then
             echo "Homebrew not found. Installing..."
-            echo "--> Please, type your Mac Login Password:"
+            echo "--> When prompted for the password, enter your Mac login password."
             export CI=1
             yes '' | /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
             # echo | /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)" > /dev/null && if [ $? -eq 0 ]; then echo 'OK'; else echo 'NG'; fi
