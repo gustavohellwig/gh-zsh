@@ -5,13 +5,12 @@
 #--------------------------------------------------
 OS="$(uname)"
 if [[ "$OS" == "Linux" ]] || [[ "$OS" == "Darwin" ]] ; then
+    echo "---> Type your Mac Login Password and wait, as that can take some minutes."
     echo -e "\nInstalling zsh, bat, wget, and git"
     if [[ "$OS" == "Linux" ]]; then
         sudo apt install zsh bat wget git -y &> /dev/null
     fi
     if [[ "$OS" == "Darwin" ]]; then
-        echo "MacOS"
-        echo "Checking Xcode Command Line Tools"
         version_gt() {
         [[ "${1%.*}" -gt "${2%.*}" ]] || [[ "${1%.*}" -eq "${2%.*}" && "${1#*.}" -gt "${2#*.}" ]]
         }
@@ -109,7 +108,6 @@ if [[ "$OS" == "Linux" ]] || [[ "$OS" == "Darwin" ]] ; then
             clt_label="$(chomp "$(/bin/bash -c "$clt_label_command")")"
 
             if [[ -n "$clt_label" ]]; then
-                echo "Installing $clt_label"
                 execute_sudo "/usr/sbin/softwareupdate" "-i" "$clt_label"
                 execute_sudo "/bin/rm" "-f" "$clt_placeholder"
                 execute_sudo "/usr/bin/xcode-select" "--switch" "/Library/Developer/CommandLineTools"
