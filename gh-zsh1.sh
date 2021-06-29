@@ -7,7 +7,7 @@ OS="$(uname)"
 if [[ "$OS" == "Linux" ]] || [[ "$OS" == "Darwin" ]] ; then
     echo
     if [[ "$OS" == "Linux" ]]; then
-        echo "--> Type your Mac Login Password and wait, as that can take some minutes."        
+        echo "--> Please, type your Password:"        
         sudo apt install zsh bat wget git -y &> /dev/null
         echo -e "\nInstalling zsh, bat, wget, and git"
     fi
@@ -32,7 +32,7 @@ if [[ "$OS" == "Linux" ]] || [[ "$OS" == "Darwin" ]] ; then
         }
         if should_install_command_line_tools && version_ge "$macos_version" "10.13"; then
             echo "Xcode Command Line Tools not found. Installing..."
-            echo "--> Type your Mac Login Password and wait, as that can take some minutes."
+            echo "--> Please, type your Mac Login Password:"
             shell_join() {
                 local arg
                 printf "%s" "$1"
@@ -121,7 +121,7 @@ if [[ "$OS" == "Linux" ]] || [[ "$OS" == "Darwin" ]] ; then
         which -s brew &> /dev/null
         if [[ $? != 0 ]] ; then
             echo "Homebrew not found. Installing..."
-            echo "--> Type your Mac Login Password and wait, as that can take some minutes."
+            echo "--> Please, type your Mac Login Password:"
             export CI=1
             yes '' | /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
             # echo | /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)" > /dev/null && if [ $? -eq 0 ]; then echo 'OK'; else echo 'NG'; fi
