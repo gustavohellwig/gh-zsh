@@ -1,5 +1,5 @@
 # gh-zsh
-A simple script to setup an awesome shell environment with:
+A simple script to setup an awesome shell environment for Ubuntu and MacOS, with:
 * powerlevel10k theme (https://github.com/romkatv/powerlevel10k)
 * zsh-completions (https://github.com/zsh-users/zsh-completions)
 * zsh-autosuggestions (https://github.com/zsh-users/zsh-autosuggestions)
@@ -13,10 +13,8 @@ Sets following useful aliases:
 * ...='cd ../..'
 * ....='cd ../../..'
 * grep='grep --color=auto'
-* less='less -R'
-* rm='rm -i'
-* cp='cp -i'
-* mv='mv -i'
+
+For Linux
 * bat='batcat --theme base16 -p'
 * ls='ls -h --color=auto'
 * la='ls -la --color=auto'
