@@ -7,7 +7,7 @@ OS="$(uname)"
 if [[ "$OS" == "Linux" ]] || [[ "$OS" == "Darwin" ]] ; then
     echo
     if [[ "$OS" == "Linux" ]]; then
-        echo "--> Please, type your Password:"        
+        echo "--> Please, enter your Password:"        
         sudo apt install zsh bat wget git -y &> /dev/null
         echo -e "\nInstalling zsh, bat, wget, and git"
     fi
@@ -32,7 +32,7 @@ if [[ "$OS" == "Linux" ]] || [[ "$OS" == "Darwin" ]] ; then
         }
         if should_install_command_line_tools && version_ge "$macos_version" "10.13"; then
             echo "Xcode Command Line Tools not found. Installing..."
-            echo "--> Please, type your Mac Login Password:"
+            echo "--> Please, enter your Mac Login Password:"
             shell_join() {
                 local arg
                 printf "%s" "$1"
