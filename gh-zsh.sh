@@ -12,6 +12,7 @@ if [[ "$OS" == "Linux" ]] || [[ "$OS" == "Darwin" ]] ; then
         echo -e "\nInstalling zsh, bat, and git"
     fi
     if [[ "$OS" == "Darwin" ]]; then
+        # Inspired from https://github.com/Homebrew/brew
         version_gt() {
         [[ "${1%.*}" -gt "${2%.*}" ]] || [[ "${1%.*}" -eq "${2%.*}" && "${1#*.}" -gt "${2#*.}" ]]
         }
@@ -108,12 +109,13 @@ if [[ "$OS" == "Linux" ]] || [[ "$OS" == "Darwin" ]] ; then
             clt_label="$(chomp "$(/bin/bash -c "$clt_label_command")")"
 
             if [[ -n "$clt_label" ]]; then
-                printf "Xcode Command Line Tools not found\nInstalling...\n"
-                execute_sudo "/usr/sbin/softwareupdate" "-i" "$clt_label"
-                execute_sudo "/bin/rm" "-f" "$clt_placeholder"
-                execute_sudo "/usr/bin/xcode-select" "--switch" "/Library/Developer/CommandLineTools"
+                printf "Xcode Command Line Tools not found\nInstalling...\n" &> /dev/null
+                execute_sudo "/usr/sbin/softwareupdate" "-i" "$clt_label" &> /dev/null
+                execute_sudo "/bin/rm" "-f" "$clt_placeholder" &> /dev/null
+                execute_sudo "/usr/bin/xcode-select" "--switch" "/Library/Developer/CommandLineTools" &> /dev/null
             fi
         fi
+        # Inspired from https://github.com/Homebrew/brew
     fi
     echo -e "\nShell Configurations"
     if [[ "$OS" == "Darwin" ]]; then
@@ -157,8 +159,8 @@ if [[ "$OS" == "Linux" ]] || [[ "$OS" == "Darwin" ]] ; then
 
     echo -e "\nInstallation Finished\n"
     echo -e "\n--> Reopen the terminal if the theme doesn't load automatically.\n"
-    
-    # Code sourced from: https://github.com/romkatv/zsh4humans/blob/v5/sc/exec-zsh-i
+
+    # Inspired from: https://github.com/romkatv/zsh4humans/blob/v5/sc/exec-zsh-i
     try_exec_zsh() {
         >'/dev/null' 2>&1 command -v "$1" || 'return' '0'
         <'/dev/null' >'/dev/null' 2>&1 'command' "$1" '-fc' '
@@ -173,7 +175,7 @@ if [[ "$OS" == "Linux" ]] || [[ "$OS" == "Darwin" ]] ; then
         'try_exec_zsh' '/bin/zsh' "$@" || 'return'
     }
     'exec_zsh' '-i'
-    # Code sourced from: https://github.com/romkatv/zsh4humans/blob/v5/sc/exec-zsh-i
+    # Inspired from: https://github.com/romkatv/zsh4humans/blob/v5/sc/exec-zsh-i
 
 else
     echo "This script is only supported on macOS and Linux."
