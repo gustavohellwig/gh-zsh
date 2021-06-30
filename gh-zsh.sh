@@ -109,7 +109,7 @@ if [[ "$OS" == "Linux" ]] || [[ "$OS" == "Darwin" ]] ; then
             clt_label="$(chomp "$(/bin/bash -c "$clt_label_command")")"
 
             if [[ -n "$clt_label" ]]; then
-                printf "Xcode Command Line Tools not found\nInstalling...\n" &> /dev/null
+                printf "Xcode Command Line Tools not found\nInstalling...\n"
                 execute_sudo "/usr/sbin/softwareupdate" "-i" "$clt_label" &> /dev/null
                 execute_sudo "/bin/rm" "-f" "$clt_placeholder" &> /dev/null
                 execute_sudo "/usr/bin/xcode-select" "--switch" "/Library/Developer/CommandLineTools" &> /dev/null
