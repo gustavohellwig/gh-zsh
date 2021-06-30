@@ -157,7 +157,7 @@ if [[ "$OS" == "Linux" ]] || [[ "$OS" == "Darwin" ]] ; then
     (cd ~/.zsh/ && curl -O https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/lib/history.zsh) &> /dev/null
     (cd ~/.zsh/ && curl -O https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/lib/key-bindings.zsh) &> /dev/null
 
-    echo -e "\nInstallation Finished\n"
+    echo -e "\nInstallation Finished"
     echo -e "\n--> Reopen the terminal if the theme doesn't load automatically.\n"
 
     # Inspired from: https://github.com/romkatv/zsh4humans/blob/v5/sc/exec-zsh-i
