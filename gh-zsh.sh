@@ -156,7 +156,6 @@ if [[ "$OS" == "Linux" ]] || [[ "$OS" == "Darwin" ]] ; then
     (cd ~/.zsh/ && curl -O https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/lib/key-bindings.zsh) &> /dev/null
 
     echo -e "\nInstallation Finished\n"
-    #echo -e "\n--> Reopen Terminal or run 'zsh' to start using it. \n"
 
     # Code sourced from: https://github.com/romkatv/zsh4humans/blob/v5/sc/exec-zsh-i
     try_exec_zsh() {
