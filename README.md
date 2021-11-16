@@ -3,7 +3,7 @@ A simple script to setup an awesome shell environment for Ubuntu and MacOS, with
 * powerlevel10k theme (https://github.com/romkatv/powerlevel10k)
 * zsh-completions (https://github.com/zsh-users/zsh-completions)
 * zsh-autosuggestions (https://github.com/zsh-users/zsh-autosuggestions)
-* fast-syntax-highlighting (https://github.com/zdharma/fast-syntax-highlighting/
+* fast-syntax-highlighting (https://github.com/zdharma-continuum/fast-syntax-highlighting/
 * completion (https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/lib/completion.zsh)
 * history (https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/lib/history.zsh)
 * key-bindings (https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/lib/key-bindings.zsh)
