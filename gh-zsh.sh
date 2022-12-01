@@ -129,12 +129,12 @@ if [[ "$OS" == "Linux" ]] || [[ "$OS" == "Darwin" ]] ; then
         echo -e "\n--> Backing up the current .zshrc config to .zshrc-backup-date"
     fi
     (cd ~/ && curl -O https://raw.githubusercontent.com/gustavohellwig/gh-zsh/main/.zshrc) &> /dev/null
-    echo "source $HOME/.zsh/powerlevel10k/powerlevel10k.zsh-theme" >>~/.zshrc
-    echo "source $HOME/.zsh/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh" >> ~/.zshrc
-    echo "source $HOME/.zsh/completion.zsh" >> ~/.zshrc
-    echo "source $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh" >> ~/.zshrc
-    echo "source $HOME/.zsh/history.zsh" >> ~/.zshrc
-    echo "source $HOME/.zsh/key-bindings.zsh" >> ~/.zshrc
+    echo "source \$HOME/.zsh/powerlevel10k/powerlevel10k.zsh-theme" >>~/.zshrc
+    echo "source \$HOME/.zsh/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh" >> ~/.zshrc
+    echo "source \$HOME/.zsh/completion.zsh" >> ~/.zshrc
+    echo "source \$HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh" >> ~/.zshrc
+    echo "source \$HOME/.zsh/history.zsh" >> ~/.zshrc
+    echo "source \$HOME/.zsh/key-bindings.zsh" >> ~/.zshrc
     if [[ "$OS" == "Linux" ]]; then
         sudo cp /home/"$(whoami)"/.zshrc /root/
     fi
