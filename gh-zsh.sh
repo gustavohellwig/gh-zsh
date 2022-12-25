@@ -135,18 +135,18 @@ if [[ "$OS" == "Linux" ]] || [[ "$OS" == "Darwin" ]] ; then
     echo "source \$HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh" >> ~/.zshrc
     echo "source \$HOME/.zsh/history.zsh" >> ~/.zshrc
     echo "source \$HOME/.zsh/key-bindings.zsh" >> ~/.zshrc
-    if [[ "$OS" == "Linux" ]]; then
-        sudo cp /home/"$(whoami)"/.zshrc /root/
-    fi
+    #if [[ "$OS" == "Linux" ]]; then
+    #    sudo cp /home/"$(whoami)"/.zshrc /root/
+    #fi
     #--------------------------------------------------
     # Theme Installation
     #--------------------------------------------------
     echo -e "\nTheme Installation"
     git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.zsh/powerlevel10k &> /dev/null
     (cd ~/ && curl -O https://raw.githubusercontent.com/gustavohellwig/gh-zsh/main/.p10k.zsh) &> /dev/null
-    if [[ "$OS" == "Linux" ]]; then
-        sudo cp /home/"$(whoami)"/.p10k.zsh /root/
-    fi
+    # if [[ "$OS" == "Linux" ]]; then
+    #    sudo cp /home/"$(whoami)"/.p10k.zsh /root/
+    #fi
     #--------------------------------------------------
     # Plugins Installations
     #--------------------------------------------------
