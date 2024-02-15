@@ -1,5 +1,5 @@
-# gh-zsh
-A simple script to setup an awesome shell environment for Ubuntu and MacOS, with:
+![image](https://github.com/gustavohellwig/gh-zsh/assets/7680647/e09ed8ae-1090-4edd-85fe-e4e6ee2c32d9)# gh-zsh
+A simple script to set an awesome shell environment for Ubuntu and MacOS, with:
 * powerlevel10k theme (https://github.com/romkatv/powerlevel10k)
 * zsh-completions (https://github.com/zsh-users/zsh-completions)
 * zsh-autosuggestions (https://github.com/zsh-users/zsh-autosuggestions)
@@ -8,7 +8,7 @@ A simple script to setup an awesome shell environment for Ubuntu and MacOS, with
 * history (https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/lib/history.zsh)
 * key-bindings (https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/lib/key-bindings.zsh)
 
-Sets following useful aliases:
+Sets the following useful aliases:
 * ..='cd ..'
 * ...='cd ../..'
 * ....='cd ../../..'
@@ -21,7 +21,7 @@ For Linux
 
 ## Demo
 
-Currently the command prompt looks like this:
+Currently, the command prompt looks like this:
 ![ZSH-Prompt](https://github.com/gustavohellwig/gh-zsh/blob/2e0ac65f20691f1f26e17145013e4a1260a0128e/gh-zsh-example.png)
 ## Installation
 
@@ -30,8 +30,8 @@ curl -fsSL https://raw.githubusercontent.com/gustavohellwig/gh-zsh/main/gh-zsh.s
 ```
 
 ## Notes
-* If you are already using zsh, your zsh config will be backed up to .zshrc-backup-date.
-* If the text/icons look broken, make sure your terminal is using one of the Nerd fonts.
+* •	If you already use zsh, your zsh config will be backed up to .zshrc-backup-date.
+* •	If the text/icons look broken, ensure your terminal uses one of the Nerd fonts.
 * Tested on:
-  * Ubuntu 20.04
-  * MacOS 10.14, and 11.3
+  * Ubuntu 20.04, 22.04
+  * MacOS 10.14, 11.3, 14.3.1
