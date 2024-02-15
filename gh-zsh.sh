@@ -7,7 +7,7 @@ OS="$(uname)"
 if [[ "$OS" == "Linux" ]] || [[ "$OS" == "Darwin" ]] ; then
     echo
     if [[ "$OS" == "Linux" ]]; then
-        echo "--> Please, type your Password:"
+        echo "→ Please type your password if you have not yet used the SUDO"
         sudo apt install zsh bat git -y &> /dev/null
         echo -e "\nInstalling zsh, bat, and git"
     fi
@@ -32,7 +32,7 @@ if [[ "$OS" == "Linux" ]] || [[ "$OS" == "Darwin" ]] ; then
         fi
         }
         if should_install_command_line_tools && version_ge "$macos_version" "10.13"; then
-            echo "--> When prompted for the password, enter your Mac login password."
+            echo " → When prompted for the password, enter your Mac login password."
             shell_join() {
                 local arg
                 printf "%s" "$1"
@@ -126,7 +126,7 @@ if [[ "$OS" == "Linux" ]] || [[ "$OS" == "Darwin" ]] ; then
         sudo usermod -s /usr/bin/zsh root &> /dev/null
     fi
     if mv -n ~/.zshrc ~/.zshrc-backup-$(date +"%Y-%m-%d") &> /dev/null; then
-        echo -e "\n--> Backing up the current .zshrc config to .zshrc-backup-date"
+        echo -e "\n → Backing up the current .zshrc config to .zshrc-backup-date"
     fi
     (cd ~/ && curl -O https://raw.githubusercontent.com/gustavohellwig/gh-zsh/main/.zshrc) &> /dev/null
     echo "source \$HOME/.zsh/powerlevel10k/powerlevel10k.zsh-theme" >>~/.zshrc
@@ -158,7 +158,7 @@ if [[ "$OS" == "Linux" ]] || [[ "$OS" == "Darwin" ]] ; then
     (cd ~/.zsh/ && curl -O https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/lib/key-bindings.zsh) &> /dev/null
 
     echo -e "\nInstallation Finished"
-    echo -e "\n--> Reopen the terminal if the theme doesn't load automatically.\n"
+    echo -e "\n→ You may need to reopen the terminal if the theme doesn't load automatically.\n"
 
     # Inspired from: https://github.com/romkatv/zsh4humans/blob/v5/sc/exec-zsh-i
     try_exec_zsh() {
