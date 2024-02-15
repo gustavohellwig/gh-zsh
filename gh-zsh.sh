@@ -32,7 +32,7 @@ if [[ "$OS" == "Linux" ]] || [[ "$OS" == "Darwin" ]] ; then
         fi
         }
         if should_install_command_line_tools && version_ge "$macos_version" "10.13"; then
-            echo " → When prompted for the password, enter your Mac login password."
+            echo "→ When prompted for the password, enter your Mac login password."
             shell_join() {
                 local arg
                 printf "%s" "$1"
