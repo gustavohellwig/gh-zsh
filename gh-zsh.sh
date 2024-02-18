@@ -7,9 +7,8 @@ OS="$(uname)"
 if [[ "$OS" == "Linux" ]] || [[ "$OS" == "Darwin" ]] ; then
     echo
     if [[ "$OS" == "Linux" ]]; then
-        echo "→ Please type your password if you have not yet used the SUDO"
         sudo apt install zsh bat git -y &> /dev/null
-        echo -e "\nInstalling zsh, bat, and git"
+        echo -e "\n→ Installing zsh, bat, and git"
     fi
     if [[ "$OS" == "Darwin" ]]; then
         # Inspired from https://github.com/Homebrew/brew
