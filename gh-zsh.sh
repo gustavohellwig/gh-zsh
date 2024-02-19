@@ -134,20 +134,15 @@ if [[ "$OS" == "Linux" ]] || [[ "$OS" == "Darwin" ]] ; then
     echo "source \$HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh" >> ~/.zshrc
     echo "source \$HOME/.zsh/history.zsh" >> ~/.zshrc
     echo "source \$HOME/.zsh/key-bindings.zsh" >> ~/.zshrc
-    #if [[ "$OS" == "Linux" ]]; then
-    #    sudo cp /home/"$(whoami)"/.zshrc /root/
-    #fi
     #--------------------------------------------------
     # Theme Installation
     #--------------------------------------------------
     echo -e "\nTheme Installation"
     git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.zsh/powerlevel10k &> /dev/null
     (cd ~/ && curl -O https://raw.githubusercontent.com/gustavohellwig/gh-zsh/main/.p10k.zsh) &> /dev/null
-    if [[ "$OS" == "Linux" ]]; then
-      sudo cp -r /home/"$(whoami)"/.zshrc /root/
-      sudo cp -r /home/"$(whoami)"/.zsh /root/
-      sudo cp -r /home/"$(whoami)"/.p10k.zsh /root
-    fi
+    # if [[ "$OS" == "Linux" ]]; then
+    #    sudo cp /home/"$(whoami)"/.p10k.zsh /root/
+    #fi
     #--------------------------------------------------
     # Plugins Installations
     #--------------------------------------------------
@@ -157,6 +152,12 @@ if [[ "$OS" == "Linux" ]] || [[ "$OS" == "Darwin" ]] ; then
     (cd ~/.zsh/ && curl -O https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/lib/completion.zsh) &> /dev/null
     (cd ~/.zsh/ && curl -O https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/lib/history.zsh) &> /dev/null
     (cd ~/.zsh/ && curl -O https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/lib/key-bindings.zsh) &> /dev/null
+
+    if [[ "$OS" == "Linux" ]]; then
+      sudo cp -r /home/"$(whoami)"/.zshrc /root/
+      sudo cp -r /home/"$(whoami)"/.zsh /root/
+      sudo cp -r /home/"$(whoami)"/.p10k.zsh /root
+    fi
 
     echo -e "\nInstallation Finished"
     echo -e "\n→ You may need to reopen the terminal if the theme doesn't load automatically.\n"
@@ -172,8 +173,8 @@ if [[ "$OS" == "Linux" ]] || [[ "$OS" == "Darwin" ]] ; then
     }
     exec_zsh() {
         'try_exec_zsh' 'zsh' "$@" || 'return'
-        'try_exec_zsh' '/usr/local/bin/zsh' "$@" || 'return'
-        'try_exec_zsh' '/bin/zsh' "$@" || 'return'
+        # 'try_exec_zsh' '/usr/local/bin/zsh' "$@" || 'return'
+        # 'try_exec_zsh' '/bin/zsh' "$@" || 'return'
     }
     'exec_zsh' '-i'
     # Inspired from: https://github.com/romkatv/zsh4humans/blob/v5/sc/exec-zsh-i
