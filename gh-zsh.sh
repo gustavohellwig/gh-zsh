@@ -7,8 +7,8 @@ OS="$(uname)"
 if [[ "$OS" == "Linux" ]] || [[ "$OS" == "Darwin" ]] ; then
     echo
     if [[ "$OS" == "Linux" ]]; then
-        sudo apt install zsh bat git -y &> /dev/null
         echo -e "\n→ Installing zsh, bat, and git"
+        sudo apt install zsh bat git -y &> /dev/null
     fi
     if [[ "$OS" == "Darwin" ]]; then
         # Inspired from https://github.com/Homebrew/brew
@@ -143,9 +143,11 @@ if [[ "$OS" == "Linux" ]] || [[ "$OS" == "Darwin" ]] ; then
     echo -e "\nTheme Installation"
     git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.zsh/powerlevel10k &> /dev/null
     (cd ~/ && curl -O https://raw.githubusercontent.com/gustavohellwig/gh-zsh/main/.p10k.zsh) &> /dev/null
-    # if [[ "$OS" == "Linux" ]]; then
-    #    sudo cp /home/"$(whoami)"/.p10k.zsh /root/
-    #fi
+    if [[ "$OS" == "Linux" ]]; then
+      sudo cp -r /home/"$(whoami)"/.zshrc /root/
+      sudo cp -r /home/"$(whoami)"/.zsh /root/
+      sudo cp -r /home/"$(whoami)"/.p10k.zsh /root
+    fi
     #--------------------------------------------------
     # Plugins Installations
     #--------------------------------------------------
