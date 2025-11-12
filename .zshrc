@@ -25,7 +25,8 @@ if [[ "$OS" == "Linux" ]]; then
 fi
 
 check-ports() {
-    sudo netstat -plntu -A inet | awk '
+    # Show both IPv4 and IPv6 sockets
+    sudo netstat -plntu -A inet -A inet6 | awk '
 BEGIN {
     printf "%-8s %-25s %-8s %s\n", "Proto", "Local Addr", "PID", "Path";
     printf "%-8s %-25s %-8s %s\n", "-------", "------------", "---", "----";
@@ -33,7 +34,7 @@ BEGIN {
 NR>2 {
     proto=$1
     local_addr=$4
-    pid_field=(proto=="tcp")?$7:$6
+    pid_field=(proto=="tcp" || proto=="tcp6")?$7:$6
 
     if(!seen[$0]++ && local_addr !~ /^172/ && pid_field != "938/named") {
         pid = pid_field
@@ -46,6 +47,7 @@ NR>2 {
             close(cmd)
         }
 
+        # Extract port
         split(local_addr, a, ":")
         port = a[length(a)]
         ports[port+0] = sprintf("%-8s %-25s %-8s %s", proto, local_addr, pid, path)
