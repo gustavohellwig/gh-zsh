@@ -15,7 +15,7 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias grep='grep --color=auto'
 alias less='less -R'
-alias check-docker='sudo docker ps --no-trunc'
+alias check-docker='sudo docker ps --no-trunc --format "table {{.Names}}\t{{.Image}}\t{{.Command}}\t{{.Status}}\t{{.Ports}}"'
 
 OS="$(uname)"
 if [[ "$OS" == "Linux" ]]; then
