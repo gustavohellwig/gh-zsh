@@ -17,6 +17,7 @@ alias grep='grep --color=auto'
 alias less='less -R'
 alias check-docker='sudo docker ps --no-trunc --format "table {{.Names}}\t{{.Image}}\t{{.Command}}\t{{.Status}}\t{{.Ports}}"'
 
+# for Linux Only
 if [[ "$(uname)" == "Linux" ]]; then
     alias bat='batcat --theme base16 -p'
     alias ls='ls -h --color=auto'
