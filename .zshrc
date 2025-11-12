@@ -15,6 +15,7 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias grep='grep --color=auto'
 alias less='less -R'
+alias check-ports='sudo netstat -plntu'
 
 OS="$(uname)"
 if [[ "$OS" == "Linux" ]]; then
@@ -30,4 +31,3 @@ export LANG="C.UTF-8"
 export LC_ALL="C.UTF-8"
 export LC_CTYPE="C.UTF-8"
 export LC_MESSAGES="C.UTF-8"
-# sources
