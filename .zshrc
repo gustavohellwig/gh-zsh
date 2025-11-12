@@ -16,6 +16,7 @@ alias ....='cd ../../..'
 alias grep='grep --color=auto'
 alias less='less -R'
 alias check-ports='sudo netstat -plntu'
+alias check-docker='sudo docker ps --no-trunc'
 
 OS="$(uname)"
 if [[ "$OS" == "Linux" ]]; then
