@@ -24,7 +24,8 @@ if [[ "$OS" == "Linux" ]]; then
     alias la='ls -lah --color=auto'
 fi
 
-sudo netstat -plntu -A inet -A inet6 | awk '
+check-ports() {
+    sudo netstat -plntu -A inet -A inet6 | awk '
 BEGIN {
     printf "%-8s %-25s %-8s %s\n", "Proto", "Local Addr", "PID", "Path";
     printf "%-8s %-25s %-8s %s\n", "-------", "------------", "---", "----";
@@ -55,6 +56,7 @@ END {
     n = asorti(ports, sorted_ports, "@ind_num_asc")
     for(i=1; i<=n; i++) print ports[sorted_ports[i]]
 }'
+}
 
 # Exports
 export TERM="xterm-256color"
