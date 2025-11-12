@@ -25,7 +25,6 @@ if [[ "$OS" == "Linux" ]]; then
 fi
 
 check-ports() {
-    # Show both IPv4 and IPv6 sockets
     sudo netstat -plntu -A inet -A inet6 | awk '
 BEGIN {
     printf "%-8s %-25s %-8s %s\n", "Proto", "Local Addr", "PID", "Path";
