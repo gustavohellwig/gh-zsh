@@ -26,7 +26,7 @@ Currently, the command prompt looks like this:
 ## Installation
 
 ``` bash
-sudo curl -fsSL https://raw.githubusercontent.com/gustavohellwig/gh-zsh/main/gh-zsh.sh | bash
+curl -fsSL https://raw.githubusercontent.com/gustavohellwig/gh-zsh/main/gh-zsh.sh | bash
 ```
 
 ## Notes
