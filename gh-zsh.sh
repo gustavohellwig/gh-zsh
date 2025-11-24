@@ -4,12 +4,6 @@ set -e
 OS="$(uname)"
 
 #===========================================================
-# Create required folders
-#===========================================================
-mkdir -p ~/.zsh
-mkdir -p ~/.zsh/plugins
-
-#===========================================================
 # Helpers
 #===========================================================
 msg() { echo -e "\n→ $1"; }
@@ -18,7 +12,7 @@ err() { echo "ERROR: $1" >&2; exit 1; }
 backup_file() {
     local file="$1"
     if [[ -f "$file" ]]; then
-        cp "$file" "${file}.backup-$(date +%F)" &> /dev/null
+        cp "$file" "${file}.backup-$(date +%F)}" &> /dev/null
         msg "Backup created: ${file}.backup-$(date +%F)"
     fi
 }
@@ -32,19 +26,24 @@ copy_to_root() {
 }
 
 #===========================================================
-# macOS – Command Line Tools Install
+# Ensure directories
+#===========================================================
+mkdir -p ~/.zsh
+mkdir -p ~/.zsh/plugins
+
+#===========================================================
+# macOS – Command Line Tools
 #===========================================================
 install_clt_macos() {
     msg "Checking Xcode Command Line Tools…"
-
     if xcode-select -p &>/dev/null; then
         msg "Command Line Tools already installed"
         return
     fi
 
     msg "Installing macOS Command Line Tools…"
-
     touch /tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress
+
     PROD=$(
         softwareupdate -l \
         | grep -B 1 -E "Command Line Tools" \
@@ -60,12 +59,14 @@ install_clt_macos() {
 }
 
 #===========================================================
-# OS-specific Setup
+# OS-specific Install
 #===========================================================
 if [[ "$OS" == "Linux" ]]; then
-    msg "Installing zsh, bat, and git"
+    msg "Installing zsh, bat, git, curl"
     sudo apt update &> /dev/null
     sudo apt install -y zsh bat git curl &> /dev/null
+    export PATH="/usr/local/bin:$PATH"
+    hash -r
 fi
 
 if [[ "$OS" == "Darwin" ]]; then
@@ -84,12 +85,11 @@ else
 fi
 
 #===========================================================
-# Backup old zshrc + download new
+# Backup old zshrc and download new
 #===========================================================
 backup_file ~/.zshrc
 msg "Downloading new .zshrc"
-curl -fsSL -o ~/.zshrc \
-    https://raw.githubusercontent.com/gustavohellwig/gh-zsh/main/.zshrc
+curl -fsSL -o ~/.zshrc https://raw.githubusercontent.com/gustavohellwig/gh-zsh/main/.zshrc
 
 #===========================================================
 # Install Theme
@@ -97,8 +97,7 @@ curl -fsSL -o ~/.zshrc \
 msg "Installing Powerlevel10k theme"
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.zsh/powerlevel10k &> /dev/null
 
-curl -fsSL -o ~/.p10k.zsh \
-    https://raw.githubusercontent.com/gustavohellwig/gh-zsh/main/.p10k.zsh
+curl -fsSL -o ~/.p10k.zsh https://raw.githubusercontent.com/gustavohellwig/gh-zsh/main/.p10k.zsh
 
 #===========================================================
 # Install Plugins
@@ -107,14 +106,9 @@ msg "Installing Plugins"
 git clone https://github.com/zdharma-continuum/fast-syntax-highlighting.git ~/.zsh/fast-syntax-highlighting &> /dev/null
 git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.zsh/zsh-autosuggestions &> /dev/null
 
-curl -fsSL -o ~/.zsh/completion.zsh \
-    https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/lib/completion.zsh
-
-curl -fsSL -o ~/.zsh/history.zsh \
-    https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/lib/history.zsh
-
-curl -fsSL -o ~/.zsh/key-bindings.zsh \
-    https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/lib/key-bindings.zsh
+curl -fsSL -o ~/.zsh/completion.zsh https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/lib/completion.zsh
+curl -fsSL -o ~/.zsh/history.zsh https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/lib/history.zsh
+curl -fsSL -o ~/.zsh/key-bindings.zsh https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/lib/key-bindings.zsh
 
 #===========================================================
 # Update .zshrc sources
@@ -142,5 +136,7 @@ copy_to_root
 msg "Installation Finished!"
 msg "→ Reopen terminal if theme doesn't load automatically."
 
-# Execute ZSH
-exec zsh -i
+#===========================================================
+# Replace current shell immediately with login ZSH
+#===========================================================
+exec zsh -l
