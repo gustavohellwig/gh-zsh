@@ -77,7 +77,7 @@ if [[ "$OS" == "Linux" ]]; then
     msg "Installing dependencies"
 
     sudo apt update >/dev/null 2>&1
-    sudo apt install -y zsh git curl >/dev/null 2>&1
+    sudo apt install -y zsh git curl eza net-tools gawk >/dev/null 2>&1
 
     if apt-cache show bat >/dev/null 2>&1; then
         sudo apt install -y bat >/dev/null 2>&1
@@ -126,6 +126,10 @@ git_clone_or_update \
 git_clone_or_update \
     "https://github.com/zsh-users/zsh-autosuggestions.git" \
     "$HOME/.zsh/zsh-autosuggestions"
+
+git_clone_or_update \
+    "https://github.com/zsh-users/zsh-completions.git" \
+    "$HOME/.zsh/zsh-completions"
 
 download_file \
     "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/lib/completion.zsh" \
