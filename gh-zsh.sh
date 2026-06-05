@@ -29,10 +29,10 @@ git_clone_or_update() {
 
     if [[ -d "$target/.git" ]]; then
         msg "Updating $(basename "$target")"
-        git -C "$target" pull --ff-only
+        git -C "$target" pull --ff-only >/dev/null 2>&1
     else
         msg "Installing $(basename "$target")"
-        git clone --depth=1 "$repo" "$target"
+        git clone --depth=1 "$repo" "$target" >/dev/null 2>&1
     fi
 }
 
@@ -142,11 +142,6 @@ download_file \
 copy_to_root
 
 msg "Installation Finished!"
-msg "Restart your terminal or run:"
-echo
-echo "exec zsh -l"
-echo
+msg "Restarting your terminal"
+exec zsh -l
 
-if [[ -t 1 ]]; then
-    exec zsh -l
-fi
