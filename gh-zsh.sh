@@ -76,13 +76,13 @@ install_clt_macos() {
 if [[ "$OS" == "Linux" ]]; then
     msg "Installing dependencies"
 
-    sudo apt update
-    sudo apt install -y zsh git curl
+    sudo apt update >/dev/null 2>&1
+    sudo apt install -y zsh git curl >/dev/null 2>&1
 
     if apt-cache show bat >/dev/null 2>&1; then
-        sudo apt install -y bat
+        sudo apt install -y bat >/dev/null 2>&1
     elif apt-cache show batcat >/dev/null 2>&1; then
-        sudo apt install -y batcat
+        sudo apt install -y batcat >/dev/null 2>&1
     fi
 
     if command -v batcat >/dev/null 2>&1; then
@@ -98,14 +98,11 @@ ZSH_PATH="$(command -v zsh)"
 [[ -x "$ZSH_PATH" ]] || err "zsh not found"
 
 msg "Setting ZSH as default shell"
-if [[ "$SHELL" != "$ZSH_PATH" ]]; then
-    chsh -s "$ZSH_PATH"
-fi
-
 if [[ "$OS" == "Linux" ]]; then
-    if command -v sudo >/dev/null 2>&1; then
-        sudo usermod -s "$ZSH_PATH" "$(whoami)" || true
-    fi
+    sudo chsh -s "$ZSH_PATH" "$(whoami)" || true
+    sudo chsh -s "$ZSH_PATH" root || true
+elif [[ "$OS" == "Darwin" ]]; then
+    chsh -s "$ZSH_PATH" || true
 fi
 
 msg "Downloading configuration"
