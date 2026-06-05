@@ -97,17 +97,13 @@ fi
 ZSH_PATH="$(command -v zsh)"
 [[ -x "$ZSH_PATH" ]] || err "zsh not found"
 
-msg "Setting ZSH as default shell"
+msg "ZSH installed at: $ZSH_PATH"
 
-if [[ "$SHELL" != "$ZSH_PATH" ]]; then
-    chsh -s "$ZSH_PATH"
+if [[ "$OS" == "Darwin" ]]; then
+    if [[ "$SHELL" != "$ZSH_PATH" ]]; then
+        chsh -s "$ZSH_PATH"
+    fi
 fi
-
-if [[ "$OS" == "Linux" ]]; then
-    sudo chsh -s "$ZSH_PATH" root || true
-fi
-
-backup_file "$HOME/.zshrc"
 
 msg "Downloading configuration"
 
