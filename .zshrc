@@ -100,7 +100,74 @@ if [[ "$(uname)" == "Linux" ]]; then
     fi
 
     check-ports() {
-        sudo ss -tulpn
+        sudo netstat -plntu -A inet | gawk '
+        BEGIN {
+            printf "%-8s %-25s %-8s %-20s %-20s %s\n","Proto","Local Addr","PID","Process","Service","Path";
+            printf "%-8s %-25s %-8s %-20s %-20s %s\n","-------","------------","---","-------","-------","----";
+        }
+        NR>2 {
+            proto=$1
+            local_addr=$4
+            pid_field=(proto=="tcp") ? $7 : $6
+
+            if(!seen[$0]++ && local_addr !~ /^172/) {
+
+                pid = pid_field
+                sub(/\/.*/, "", pid)
+
+                proc = pid_field
+                sub(/^[0-9]+\//, "", proc)
+
+                gsub(/:/, "", proc)
+                gsub(/"/, "", proc)
+
+                split(local_addr, a, ":")
+                port = a[length(a)]
+
+                path = ""
+                service = proc
+
+                if(pid ~ /^[0-9]+$/) {
+
+                    cmd="readlink -f /proc/" pid "/exe 2>/dev/null"
+                    if((cmd | getline path) <= 0)
+                        path="[path lookup failed]"
+                    close(cmd)
+
+                    cmd="sudo ss -tulpnH 2>/dev/null | grep :" port
+
+                    while((cmd | getline line) > 0) {
+
+                        if(match(line, /\("[^"]+"/)) {
+
+                            service=substr(line,RSTART+2,RLENGTH-2)
+
+                            gsub(/"/, "", service)
+                            gsub(/:/, "", service)
+
+                            if(service != proc)
+                                break
+                        }
+                    }
+
+                    close(cmd)
+                }
+
+                ports[port+0] = sprintf("%-8s %-25s %-8s %-20s %-20s %s",
+                                        proto,
+                                        local_addr,
+                                        pid,
+                                        proc,
+                                        service,
+                                        path)
+            }
+        }
+        END {
+            n = asorti(ports, sorted_ports, "@ind_num_asc")
+
+            for(i=1; i<=n; i++)
+                print ports[sorted_ports[i]]
+        }'
     }
 
 fi
