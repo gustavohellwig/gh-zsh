@@ -61,6 +61,8 @@ if command -v eza >/dev/null 2>&1; then
 else
     alias ll='ls -lah'
     alias l='ls -CF'
+    alias ls='ls -h --color=auto'
+    alias la='ls -lah --color=auto'
 fi
 
 alias df='df -h'
@@ -94,12 +96,7 @@ check-docker() {
 if [[ "$(uname)" == "Linux" ]]; then
 
     alias grep='grep --color=auto'
-
-    alias ls='ls -h --color=auto'
-    alias la='ls -lah --color=auto'
-
     alias free='free -h'
-
     alias topcpu='ps aux --sort=-%cpu | head'
     alias topmem='ps aux --sort=-%mem | head'
 
