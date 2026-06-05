@@ -97,11 +97,14 @@ fi
 ZSH_PATH="$(command -v zsh)"
 [[ -x "$ZSH_PATH" ]] || err "zsh not found"
 
-msg "ZSH installed at: $ZSH_PATH"
+msg "Setting ZSH as default shell"
+if [[ "$SHELL" != "$ZSH_PATH" ]]; then
+    chsh -s "$ZSH_PATH"
+fi
 
-if [[ "$OS" == "Darwin" ]]; then
-    if [[ "$SHELL" != "$ZSH_PATH" ]]; then
-        chsh -s "$ZSH_PATH"
+if [[ "$OS" == "Linux" ]]; then
+    if command -v sudo >/dev/null 2>&1; then
+        sudo usermod -s "$ZSH_PATH" "$(whoami)" || true
     fi
 fi
 
