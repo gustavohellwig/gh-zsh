@@ -7,7 +7,7 @@
 #===========================================================
 # Completion
 #===========================================================
-
+fpath+=($HOME/.zsh/zsh-completions/src)
 autoload -Uz compinit
 
 if [[ ! -f ~/.zcompdump ]]; then
@@ -52,11 +52,19 @@ alias ....='cd ../../..'
 alias p='pwd'
 alias c='clear'
 
-alias ll='ls -lah'
-alias l='ls -CF'
+if command -v eza >/dev/null 2>&1; then
+    alias ls='eza'
+    alias ll='eza -lah'
+    alias la='eza -lah'
+    alias l='eza -lah --git'
+    alias tree='eza --tree'
+else
+    alias ll='ls -lah'
+    alias l='ls -CF'
+fi
 
 alias df='df -h'
-
+alias psaux='ps aux | grep -i'
 alias digs='dig +short'
 
 alias myip='curl -4 -s https://icanhazip.com'
