@@ -193,6 +193,8 @@ if [[ "$(uname)" == "Darwin" ]]; then
 
     alias firefox='open -a Firefox --args -private-window'
 
+    alias p='open -a Firefox --args -private-window'
+
     [[ -d "$HOME/_Tools/bin/gam7" ]] && \
         export PATH="$HOME/_Tools/bin/gam7:$PATH"
 
