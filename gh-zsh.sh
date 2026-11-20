@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -Eeuo pipefail
 
-trap 'echo "ERROR: Failed on line $LINENO"; exit 1' ERR
+trap 'rc=$?; printf "ERROR: Command failed (exit %s) at line %s: %s\n" "$rc" "$LINENO" "$BASH_COMMAND" >&2; exit "$rc"' ERR
 
 OS="$(uname)"
 
